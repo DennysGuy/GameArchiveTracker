@@ -8,7 +8,7 @@ Various information for devs only.
 
 * How to run the test suite
     - To be able to view tail wind updates, you must run the watcher
-        - open a new terminal
+        - open a new terminal in VS code (or, alternatively, open a new command prompt and navigate to root folder)
         - run command 'rails tailwindcss:watch'
         - or, alternatively:
             - open 'Git Bash'
