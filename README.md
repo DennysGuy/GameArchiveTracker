@@ -1,25 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Various information for devs only.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
+* Rails Version 7.1.3.4
+    
+* Ruby version 3.2.3
 
 * How to run the test suite
+    - To be able to view tail wind updates, you must run the watcher
+        - open a new terminal
+        - run command 'rails tailwindcss:watch'
+        - or, alternatively:
+            - open 'Git Bash'
+            - navigate to root folder
+            - run command 'bin/rails tailwindcss:watch'
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
