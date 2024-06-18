@@ -4,7 +4,7 @@ Various information for devs only.
 
 * Rails Version 7.1.3.4
     
-* Ruby version 3.2.3
+* Ruby version ruby 3.2.3 (2024-01-18 revision 52bb2ac0a6) [x64-mingw-ucrt]
 
 * How to run the test suite
     - To be able to view tail wind updates, you must run the watcher
