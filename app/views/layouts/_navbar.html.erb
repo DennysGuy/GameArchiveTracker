@@ -1,5 +1,17 @@
-<div class=" flex justify-between bg-indigo-500 shadow-xl"> 
-  <div class="p-4 flex">
-  <h1 class="text-4xl font-bold text-white"> <%= link_to 'Archive Tracker', root_path %></h1>
+<div class=" flex justify-between bg-indigo-500 shadow-xl text-white""> 
+
+  <h1 class="text-4xl font-bold pl-4 pt-4 shadow-xl"> <%= link_to 'Archive Tracker', root_path %></h1>
+  <div class="flex pt-4"> 
+  <button type="button" class="mr-8 hover:underline hover:font-bold"><%= link_to 'Archive', root_path %></button>
+  <button type="button" class="mr-8 hover:underline hover:font-bold"><%= link_to 'Checkout', archive_checkout_path%> </button>
+  <button type="button" class="hover:underline hover:font-bold"><%= link_to 'Search', archive_search_path%></button>
   </div>
+
+  <div class="flex mx-8 pt-4"> 
+  <button type="button" class="mr-4 hover:underline hover:font-bold">Account</button>
+  <button type="button" class="hover:underline hover:font-bold">Log Out</button>
+  </div>
+
+
+
 </div>
