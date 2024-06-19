@@ -5,11 +5,11 @@
   <button type="button" class="mr-8 hover:underline hover:font-bold"><%= link_to 'Archive', root_path %></button>
   <button type="button" class="mr-8 hover:underline hover:font-bold"><%= link_to 'Checkout', archive_checkout_path %> </button>
   <button type="button" class="mr-8 hover:underline hover:font-bold"><%= link_to 'Search', archive_search_path %></button>
-  <button type="button" class="hover:underline hover:font-bold"><%= link_to 'Collections', archive_collections_path %></button>
+  <button type="button" class="hover:underline hover:font-bold"><%= link_to 'Explore', archive_collections_path %></button>
   </div>
 
   <div class="flex mx-8 pt-4"> 
-  <button type="button" class="mr-4 hover:underline hover:font-bold">Account</button>
+  <button type="button" class="mr-4 hover:underline hover:font-bold"><%= link_to 'Account', edit_user_registration_path %></button>
   <button type="button" class="hover:underline hover:font-bold"><%= link_to "Log Out", destroy_user_session_path %></button>
   </div>
 

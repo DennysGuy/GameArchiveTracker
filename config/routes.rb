@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   # Defines the root path route ("/")
-  # root "posts#index"
   root "archive#index"
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
