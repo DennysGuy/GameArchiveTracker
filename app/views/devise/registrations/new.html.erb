@@ -1,0 +1,41 @@
+<div class="bg-indigo-600 min-h-screen flex flex-col items-center justify-center">
+  <h1 class=" text-6xl font-bold italic text-white pb-4">Video Game Archive Tracker </h1>
+  <div class="flex mb-20 text-white">
+      <button type="button" class="pr-4 hover:underline hover:text-black"> <%= link_to 'Search Database', archive_search_path%> </button>
+      |
+      <button type="button" class="pl-4 hover:underline hover:text-black"> <%= link_to 'View Collections', archive_collections_path%> </button>
+    </div>
+  <div class="bg-white p-6 rounded-md shadow-md"> 
+    <h2 class="text-2xl font-semibold mb-4">Sign up</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field mb-4">
+          <%= f.label :email, class: "block text-sm font-medium text-gray-700" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border px-3 mt-1 w-full rounded-md" %>
+        </div>
+
+        <div class="field mb-4">
+          <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "border px-3 py-2 mt-1 w-full rounded-md" %>
+        </div>
+
+        <div class="field mb-4">
+          <%= f.label :password_confirmation, class: "rounded text-blue-500" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-sm text-gray-700" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+  </div>
+  
+</div>
+
