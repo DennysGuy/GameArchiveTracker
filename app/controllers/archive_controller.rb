@@ -1,5 +1,5 @@
 class ArchiveController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :checkout]
+  before_action :authenticate_user!, only: [:index, :checkout, :wishlist]
   def index
   end
 
@@ -10,6 +10,9 @@ class ArchiveController < ApplicationController
   end
 
   def collections
+  end
+
+  def wishlist
   end
 
 end
