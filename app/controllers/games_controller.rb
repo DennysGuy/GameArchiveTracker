@@ -1,9 +1,10 @@
 class GamesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_game, only: %i[ show edit update destroy ]
 
   # GET /games or /games.json
   def index
-    @games = Game.all
+    @games = current_user.games
   end
 
   # GET /games/1 or /games/1.json
@@ -21,7 +22,7 @@ class GamesController < ApplicationController
 
   # POST /games or /games.json
   def create
-    @game = Game.new(game_params)
+    @game = current_user.games.build(game_params)
 
     respond_to do |format|
       if @game.save
@@ -31,6 +32,10 @@ class GamesController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
+    end
+
+    def games_params
+      params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description)
     end
   end
 
