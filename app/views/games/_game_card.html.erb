@@ -31,13 +31,13 @@
     </div>
     <div class="mr-14">
       <strong>Quantity:</strong>
-      <text>1</text>
+      <%= game.quantity %>
     </div>
 
     <div class="mr-14">
       <strong>Purchased</strong>
       <div>
-      <text>$12.32</text>
+      <text>$</text> <%= game.purchased_price %>
       <text class="mx-1">|</text>
       <text> <%= game.date_purchase %> </text>
       </div>

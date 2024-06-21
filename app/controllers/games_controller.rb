@@ -35,7 +35,7 @@ class GamesController < ApplicationController
     end
 
     def games_params
-      params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description)
+      params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description, :purchased_price, :quantity)
     end
   end
 
@@ -70,6 +70,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description)
+      params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description, :purchased_price, :quantity)
     end
 end

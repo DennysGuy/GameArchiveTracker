@@ -2,7 +2,6 @@
   <% if game.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
-
       <ul>
         <% game.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -52,6 +51,11 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :date_purchase %>
     <%= form.date_field :date_purchase, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
@@ -69,6 +73,11 @@
   <div class="my-5">
     <%= form.label :region %>
     <%= form.text_field :region, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :purchased_price %>
+    <%= form.number_field :purchased_price, step: :any, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
