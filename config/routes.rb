@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :games
   get 'archive/index'
   get 'archive/checkout'
   get 'archive/search'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # Defines the root path route ("/")
-  root "archive#index"
+  root "games#index"
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
