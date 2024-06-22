@@ -5,11 +5,19 @@
 
   <% content_for :title, "Games" %>
   <div class="flex m-8 justify-end">
-  <div class= "text-md px-4 py-2 font-bold">Collection Value: $<%= @total_value%></div>
+  <div class= "text-md px-4 py-2 font-bold">Collection Cost: $<%= @total_cost%></div>
   <%= link_to "Add", new_game_path, class: "rounded-md  px-4 py-2 bg-blue-600  text-white font-medium hover:bg-blue-900" %>
   </div>
   <div class="flex justify-center">
+    <div class="flex flex-col">
     <h1 class="font-bold text-4xl">My Collection</h1>
+    <h3 class="px-10"> Trending Value: $200 </h3>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-4 mr-12">
+      <button type="button" class=" text-white py-1 px-2 bg-indigo-900 rounded-md mr-1">Search</button>
+      <input class=" border border-gray-400 h-8 w-1/3 rounded-md"/>
   </div>
 
   <div id="games" class="flex justify-center">

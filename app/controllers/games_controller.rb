@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   # GET /games or /games.json
   def index
     @games = current_user.games
-    @total_value = current_user.games.sum(:purchased_price)
+    @total_cost = current_user.games.sum(:purchased_price)
   end
 
   # GET /games/1 or /games/1.json
