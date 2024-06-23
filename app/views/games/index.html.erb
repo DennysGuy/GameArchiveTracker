@@ -40,7 +40,7 @@
   </button>
 
   <ul class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
-    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Nintendo 64</li>
+    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"><%= button_to 'Nintendo 64', "games/set_platform_filter", method: :post %></li>
     <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Playstation</li>
     <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Sega Genesis</li>
     <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Super Nintendo</li>

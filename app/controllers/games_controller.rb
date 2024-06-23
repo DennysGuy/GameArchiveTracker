@@ -10,7 +10,15 @@ class GamesController < ApplicationController
     @games = @q.result(distinct: true)
     @total_cost = current_user.games.sum(:purchased_price)
     #@platforms = current_user.games.distinct.pluck(:platform)
-    @platform_filter = "Nintendo 64"
+    @plat_bool = false
+
+    @platform_filter = ""
+
+    if @plat_bool == true
+            @platform_filter = "Nintendo 64"
+    else
+            @platform_filter = ""
+    end
     @publisher_filter = ""
     @genre_filter = ""
     @release_year_filter = ""
@@ -74,6 +82,12 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def set_platform_filter
+    @plat_bool = true
+    redirect_to root_path
+
   end
 
   private
