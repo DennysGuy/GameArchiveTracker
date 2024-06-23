@@ -1,24 +1,16 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_game, only: %i[ show edit update destroy ]
+  before_action :set_game, only: %i[show edit update destroy]
 
   # GET /games or /games.json
   def index
     @games = current_user.games
-
     @q = current_user.games.ransack(params[:q])
     @games = @q.result(distinct: true)
     @total_cost = current_user.games.sum(:purchased_price)
-    #@platforms = current_user.games.distinct.pluck(:platform)
-    @plat_bool = false
 
-    @platform_filter = ""
+    @platform_filter = session[:platform_filter] || "All Platforms"
 
-    if @plat_bool == true
-            @platform_filter = "Nintendo 64"
-    else
-            @platform_filter = ""
-    end
     @publisher_filter = ""
     @genre_filter = ""
     @release_year_filter = ""
@@ -54,12 +46,7 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
-
-    def games_params
-      params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description, :purchased_price, :quantity)
-    end
   end
-
 
   # PATCH/PUT /games/1 or /games/1.json
   def update
@@ -77,7 +64,6 @@ class GamesController < ApplicationController
   # DELETE /games/1 or /games/1.json
   def destroy
     @game.destroy!
-
     respond_to do |format|
       format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
       format.json { head :no_content }
@@ -85,19 +71,22 @@ class GamesController < ApplicationController
   end
 
   def set_platform_filter
-    @plat_bool = true
-    redirect_to root_path
-
+    session[:platform_filter] = params[:platform]
+    respond_to do |format|
+      format.json { render json: { platform_filter: session[:platform_filter] } }
+    end
   end
+  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def game_params
-      params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description, :purchased_price, :quantity)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_game
+    @game = Game.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def game_params
+    params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description, :purchased_price, :quantity)
+  end
 end

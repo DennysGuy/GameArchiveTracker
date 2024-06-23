@@ -1,6 +1,4 @@
 <div class="w-full">
-  
-
   <% content_for :title, "Games" %>
   <div class="bg-gray-200 ">
     <div class="flex py-8 px-2 justify-end">
@@ -32,31 +30,61 @@
   <div>
     platform:
     <div class="relative inline-block text-left">
-  <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
-    <%= @platform_filter %>
-    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-    </svg>
-  </button>
+    <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
+      <span id="platform-filter"><%= @platform_filter %></span>
+      <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+      </svg>
+    </button>
 
-  <ul class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
-    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"><%= button_to 'Nintendo 64', "games/set_platform_filter", method: :post %></li>
-    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Playstation</li>
-    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Sega Genesis</li>
-    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Super Nintendo</li>
-  </ul>
-</div>
-
-<script>
+    <ul class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-platform="Nintendo 64" class="platform-button">Nintendo 64</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-platform="Playstation" class="platform-button">Playstation</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-platform="Sega Genesis" class="platform-button">Sega Genesis</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-platform="Super Nintendo" class="platform-button">Super Nintendo</button>
+      </li>
+    </ul>
+  </div>
+    
+  <script>
   document.addEventListener('DOMContentLoaded', function () {
     const button = document.getElementById('menu-button');
     const menu = document.getElementById('dropdown-menu');
+    const platformButtons = document.querySelectorAll('.platform-button');
+    const platformFilter = document.getElementById('platform-filter');
 
     button.addEventListener('click', function () {
       menu.classList.toggle('hidden');
     });
+
+    platformButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const platform = this.getAttribute('data-platform');
+        fetch('/games/set_platform_filter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+          },
+          body: JSON.stringify({ platform: platform })
+        })
+        .then(response => response.json())
+        .then(data => {
+          platformFilter.textContent = data.platform_filter;
+          menu.classList.add('hidden');
+        });
+      });
+    });
   });
 </script>
+
     
   </div>
 
