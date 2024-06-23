@@ -5,6 +5,9 @@ class GamesController < ApplicationController
   # GET /games or /games.json
   def index
     @games = current_user.games
+
+    @q = current_user.games.ransack(params[:q])
+    @games = @q.result(distinct: true)
     @total_cost = current_user.games.sum(:purchased_price)
   end
 
@@ -39,6 +42,7 @@ class GamesController < ApplicationController
       params.require(:game).permit(:game_art, :title, :platform, :publisher, :developer, :genre, :series, :release_year, :date_purchase, :condition, :items_included, :region, :description, :purchased_price, :quantity)
     end
   end
+
 
   # PATCH/PUT /games/1 or /games/1.json
   def update
