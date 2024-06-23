@@ -9,6 +9,15 @@ class GamesController < ApplicationController
     @q = current_user.games.ransack(params[:q])
     @games = @q.result(distinct: true)
     @total_cost = current_user.games.sum(:purchased_price)
+    #@platforms = current_user.games.distinct.pluck(:platform)
+    @platform_filter = "Nintendo 64"
+    @publisher_filter = ""
+    @genre_filter = ""
+    @release_year_filter = ""
+    @region_filter = ""
+    @mode_filter = ""
+    @developer_filter = ""
+    @condition_filter = ""
   end
 
   # GET /games/1 or /games/1.json

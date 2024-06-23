@@ -1,16 +1,19 @@
 <div class="w-full">
-  <% if notice.present? %>
-    <p class=" py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+  
 
   <% content_for :title, "Games" %>
-  <div class="flex m-8 justify-end">
-  <div class= "text-md px-4 py-2 font-bold">Collection Cost: $<%= @total_cost%></div>
-  <%= link_to "Add", new_game_path, class: "rounded-md  px-4 py-2 bg-blue-600  text-white font-medium hover:bg-blue-900" %>
+  <div class="bg-gray-200 ">
+    <div class="flex py-8 px-2 justify-end">
+    <div class= "text-md px-4 font-bold">Collection Cost: $<%= @total_cost%></div>
+    <%= link_to "Add", new_game_path, class: "rounded-md  px-4 bg-blue-600  text-white font-medium hover:bg-blue-900" %>
+    </div>
   </div>
-  <div class="flex justify-center">
+  
+
+  <div class=" border border-gray-300">
+  <div class="flex justify-center ">
     <div class="flex flex-col">
-    <h1 class="font-bold text-4xl">My Collection</h1>
+    <h1 class="font-bold text-4xl pt-4">My Collection</h1>
     <h3 class="px-10"> Trending Value: $200 </h3>
     </div>
   </div>
@@ -23,7 +26,75 @@
       <%= f.search_field :title_cont, class: "w-1/3 rounded-md" %>
     </div>
   <%end%>
+  </div>
+  <div class="flex justify-between p-2 bg-gray-200 shadow-lg text-sm">
+  filter by:
+  <div>
+    platform:
+    <div class="relative inline-block text-left">
+  <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
+    <%= @platform_filter %>
+    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+    </svg>
+  </button>
 
+  <ul class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
+    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Nintendo 64</li>
+    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Playstation</li>
+    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Sega Genesis</li>
+    <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Super Nintendo</li>
+  </ul>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const button = document.getElementById('menu-button');
+    const menu = document.getElementById('dropdown-menu');
+
+    button.addEventListener('click', function () {
+      menu.classList.toggle('hidden');
+    });
+  });
+</script>
+    
+  </div>
+
+  <div>
+    publisher:
+    form2
+  </div>
+
+  <div>
+    genre:
+    form3
+  </div>
+
+  <div>
+    release year:
+    form4
+  </div>
+
+  <div>
+    region:
+    form5
+  </div>
+
+  <div>
+    mode:
+    form6
+  </div>
+
+  <div>
+    condition:
+    form7
+  </div>
+
+  <div>
+  <%= link_to "Refresh", new_game_path, class: "rounded-md  px-2 py-1 bg-blue-600  text-white font-medium hover:bg-blue-900" %>
+  </div>
+
+  </div>
   <div id="games" class="flex justify-center">
     <div class="grid px-10 py-4">
     <% @games.each do |game| %>
