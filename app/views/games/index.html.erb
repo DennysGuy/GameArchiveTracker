@@ -5,10 +5,11 @@
     <div class= "text-md px-4 font-bold">Collection Cost: $<%= @total_cost%></div>
     <%= link_to "Add", new_game_path, class: "rounded-md  px-4 bg-blue-600  text-white font-medium hover:bg-blue-900" %>
     </div>
+
   </div>
   
 
-  <div class=" border border-gray-300">
+ 
   <div class="flex justify-center ">
     <div class="flex flex-col">
     <h1 class="font-bold text-4xl pt-4">My Collection</h1>
@@ -29,7 +30,7 @@
   filter by:
   <div>
     platform:
-    <div class="relative inline-block text-left">
+    <div class="relative inline-block text-left" data-url="">
     <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
       <span id="platform-filter"><%= @platform_filter %></span>
       <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -79,6 +80,7 @@
         .then(data => {
           platformFilter.textContent = data.platform_filter;
           menu.classList.add('hidden');
+          window.location.reload();
         });
       });
     });
