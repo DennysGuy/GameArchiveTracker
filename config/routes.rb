@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     collection do
       post :set_platform_filter
     end
+
+    collection do
+      post :set_publisher_filter
+    end
   end
 
   get 'archive/index'
@@ -19,7 +23,7 @@ Rails.application.routes.draw do
   }
 
   root "games#index"
-  
+
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end

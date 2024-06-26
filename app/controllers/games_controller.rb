@@ -10,8 +10,7 @@ class GamesController < ApplicationController
     @total_cost = current_user.games.sum(:purchased_price)
 
     @platform_filter = session[:platform_filter] || "All Platforms"
-
-    @publisher_filter = ""
+    @publisher_filter = session[:publisher_filter] || "All Publishers"
     @genre_filter = ""
     @release_year_filter = ""
     @region_filter = ""
@@ -76,7 +75,14 @@ class GamesController < ApplicationController
       format.json { render json: { platform_filter: session[:platform_filter] } }
     end
   end
-  
+
+  def set_publisher_filter
+    session[:publisher_filter] = params[:publisher]
+    respond_to do |format|
+      format.json { render json: { publisher_filter: session[:publisher_filter] } }
+    end
+  end
+
 
   private
 
