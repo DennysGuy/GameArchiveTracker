@@ -1,77 +1,103 @@
 <div id="<%= dom_id game %>">
-  <p class="my-5">
+  <p class="my-2">
     <strong class="block font-medium mb-1">Game art:</strong>
     <%= game.game_art %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= game.title %>
-  </p>
+  <div class="flex">
+    <div class="my-2 text-5xl font-bold">
+    <%= game.title %> 
+    </div>
+    <div class="pl-2">
+    <div class="my-6 text-xl">
+      | <%= game.release_year %>
+    </div>
+    </div>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Platform:</strong>
-    <%= game.platform %>
-  </p>
+  <div class="border border-gray-300">
+    <div class="px-6 py-4">
+      <div class="mr-2 font-bold underline">
+      Game Details
+      </div>
+    </div>
+    <div class="flex p-4">
+      
+      <div class="flex flex-col ml-2 mr-10 text-lg">
+        <div class="flex">
+          <strong class="font-medium mb-4 mr-2">Platform:</strong>
+          <%= game.platform %>
+        </div>
+        
+        <div class="flex">
+          <strong class="font-medium mb-1 mr-2">Series:</strong>
+          <%= game.series %>
+        </div>
+      </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Publisher:</strong>
-    <%= game.publisher %>
-  </p>
+      <div class="flex flex-col mr-10 text-lg">
+        <div class="flex">
+          <strong class="block font-medium mb-4 mr-2">Publisher:</strong>
+          <%= game.publisher %>
+        </div>
+        <div class="flex">
+          <strong class="block font-medium mr-2">Developer:</strong>
+          <%= game.developer %>
+        </div>
+      </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Developer:</strong>
-    <%= game.developer %>
-  </p>
+      <div class="flex flex-col mr-5 text-lg">
+        <div class="flex">
+          <strong class="block font-medium mb-4 mr-2">Genre:</strong>
+          <%= game.genre %>
+        </div>
+        <div class="flex">
+          <strong class="block font-medium mr-2">Region:</strong>
+          <%= game.region %>
+        </div>   
+      </div>
+    </div>
+    <p class="p-6">
+      <strong class="block font-medium mb-4">Personal Description:</strong>
+      <%= game.description %>
+    </p>
+  </div>
+  
+  <div class="flex mb-5 text-xl">
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Genre:</strong>
-    <%= game.genre %>
-  </p>
+  </div>
+  
+  <div class="border border-gray-300">
+    <div class="mr-2 font-bold underline px-4 py-4">
+      Collection Details
+    </div>
+    <div class="flex p-4">
+      <div class="flex flex-col mr-10 text-lg">
+        <div class="flex">
+          <strong class="font-medium mr-2 mb-1">Purchased on:</strong>
+          <%= game.date_purchase %>
+          <strong class="font-medium mx-2 mb-1">for</strong>$<%= game.purchased_price %>
+        </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Series:</strong>
-    <%= game.series %>
-  </p>
+        <div class="flex">
+          <strong class="block font-medium mr-2 mb-1">Included:</strong>
+          <%= game.items_included %>
+        </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Release year:</strong>
-    <%= game.release_year %>
-  </p>
+      </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Date purchase:</strong>
-    <%= game.date_purchase %>
-  </p>
+      <div class="flex flex-col mr-10 text-lg">
+        <div class="flex">
+          <strong class="font-medium mr-2 mb-1">Quantity:</strong>
+          <%= game.quantity %>
+        </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Purchased For:</strong>
-    <%= game.purchased_price %>
-  </p>
-
-  <p class="my-5">
-  <strong class="block font-medium mb-1">Quantity:</strong>
-  <%= game.quantity %>
-</p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Condition:</strong>
-    <%= game.condition %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Items included:</strong>
-    <%= game.items_included %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Region:</strong>
-    <%= game.region %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= game.description %>
-  </p>
+        <div class="flex">
+          <strong class="font-medium mr-2 mb-1">Condition:</strong>
+          <%= game.condition %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
