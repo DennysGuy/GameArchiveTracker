@@ -11,3 +11,6 @@
 }
 
 */
+.dropdown {
+  @apply relative inline-block text-left
+}

@@ -1,0 +1,164 @@
+<div class="w-full">
+  <% content_for :title, "Games" %>
+  <div class="bg-gray-200 ">
+    <div class="flex py-8 px-2 justify-end">
+    <div class= "text-md px-4 font-bold">Collection Cost: $<%= @total_cost%></div>
+    <%= link_to "Add", new_game_path, class: "rounded-md  px-4 bg-blue-600  text-white font-medium hover:bg-blue-900" %>
+    </div>
+
+  </div>
+  
+
+ 
+  <div class="flex justify-center ">
+    <div class="flex flex-col">
+    <h1 class="font-bold text-4xl pt-4">My Collection</h1>
+    <h3 class="px-10"> Trending Value: $200 </h3>
+    </div>
+  </div>
+
+  <%= search_form_for @q do |f|%>
+    <div class="flex justify-center p-4 ">
+      <div class="mr-2 py-2 px-4 bg-indigo-600 hover:bg-indigo-900 hover:cursor-pointer rounded-md text-white ">
+      <%= f.submit %>
+      </div>
+      <%= f.search_field :title_cont, class: "w-1/3 rounded-md" %>
+    </div>
+  <%end%>
+  </div>
+  <div class="flex justify-between p-2 bg-gray-200 shadow-lg text-sm">
+  filter by:
+  <div>
+    platform:
+    <div class="relative inline-block text-left filter-section" id="data-element" data-filter-type="platform_filter" data="/games/set_platform_filter">
+    <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
+      <span id="category-filter"><%= @platform_filter %></span>
+      <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+      </svg>
+    </button>
+
+    <ul class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Nintendo 64" class="category-button">Nintendo 64</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Playstation" class="category-button">Playstation</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Sega Genesis" class="category-button">Sega Genesis</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Super Nintendo" class="category-button">Super Nintendo</button>
+      </li>
+    </ul>
+  </div>
+    
+  </div>
+
+  <div>
+    publisher:
+    <div class="relative inline-block text-left filter-section" id="data-element" data-filter-type="publisher_filter" data="/games/set_publisher_filter">
+    <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-2 py-1 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
+      <span id="category-filter"><%= @publisher_filter %></span>
+      <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+      </svg>
+    </button>
+
+    <ul class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown-menu">
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Nintendo EAD" class="category-button">Nintendo EAD</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Activision" class="category-button">Activision</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Konami" class="category-button">Konami</button>
+      </li>
+      <li class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">
+        <button data-category="Namco" class="category-button">Namco</button>
+      </li>
+    </ul>
+  </div>
+  </div>
+
+  <div>
+    genre:
+    form3
+  </div>
+
+  <div>
+    release year:
+    form4
+  </div>
+
+  <div>
+    region:
+    form5
+  </div>
+
+  <div>
+    mode:
+    form6
+  </div>
+
+  <div>
+    condition:
+    form7
+  </div>
+
+  <script>
+
+  
+  document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.filter-section').forEach(function (section) {
+    const button = section.querySelector('button');
+    const menu = section.querySelector('ul');
+    const filterType = section.getAttribute('data-filter-type');
+    const filter = document.getElementById(filterType);
+
+    const dataElement = document.getElementById('data-element'); 
+    const dataUrl = dataElement.getAttribute('data'); 
+
+    button.addEventListener('click', function () {
+      menu.classList.toggle('hidden');
+    });
+
+    section.querySelectorAll('.category-button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const category = this.getAttribute('data-category');
+        fetch(dataUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+          },
+          body: JSON.stringify({ filter_type: filterType, category: category })
+        })
+        .then(response => response.json())
+        .then(data => {
+          filter.textContent = data[filterType];
+          menu.classList.add('hidden');
+          window.location.reload();
+        });
+      });
+    });
+  });
+});
+</script>
+
+
+  <div>
+  <%= link_to "Refresh", new_game_path, class: "rounded-md  px-2 py-1 bg-blue-600  text-white font-medium hover:bg-blue-900" %>
+  </div>
+
+  </div>
+  <div id="games" class="flex justify-center">
+    <div class="grid px-10 py-4">
+    <% @games.each do |game| %>
+      <%= render partial: "game_card", locals: {game:game} %>
+    <% end %>
+    </div>
+  </div>
+</div>

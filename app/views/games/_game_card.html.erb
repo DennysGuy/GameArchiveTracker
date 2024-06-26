@@ -1,0 +1,58 @@
+<div id="<%= dom_id game %>" class="border border-gray-400 my-4 shadow-lg">
+  <div class="flex mx-8 py-4">
+    <div class="mr-8">
+      <%= game.game_art %>
+    </div>
+
+    <div class="flex flex-col mr-14">
+      <div class="font-bold text-lg text-indigo-600 underline hover:text-indigo-900">
+        <%= link_to game.title, game %> (<%= link_to game.region, game %>)
+      </div>
+
+      <div class="flex text-sm">
+        <div>
+        <%= game.series %>
+        </div>
+        <text class="mx-1">|</text>
+        <div>
+          <%= game.platform %>
+        </div>
+        <text class="mx-1">|</text>
+        <div>
+          <%= game.release_year %>
+        </div> 
+        </div>
+
+    </div>
+
+    <div class="flex flex-col mr-14">
+      <strong>Included:</strong>
+      <%= game.items_included %>
+    </div>
+    <div class="mr-14">
+      <strong>Quantity:</strong>
+      <%= game.quantity %>
+    </div>
+
+    <div class="mr-14">
+      <strong>Purchased</strong>
+      <div>
+      $<%= game.purchased_price %>
+      <text class="mx-1">|</text>
+      <text> <%= game.date_purchase %> </text>
+      </div>
+    </div>
+   
+    <div class="flex flex-col">
+      <div >
+      <%= link_to "Edit", edit_game_path(game), class: "underline text-indigo-700 hover: text-indigo-900" %>
+      <text class="mx-1">|</text>
+      <button type="button"> Duplicate </button>
+      </div>
+      <div>
+      <%= button_to "Remove", game,  method: :delete, class: "underline text-indigo-700 hover: text-indigo-900" %>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<div class=" flex justify-between bg-indigo-500 shadow-xl text-white""> 
+
+  <div class="flex pt-4">
+    <h1 class="text-2xl font-bold pl-4 pr-8 shadow-xl"> <%= link_to 'The Archive', root_path %></h1>
+    <button type="button" class="hover:underline hover:font-bold"><%= link_to 'Collection', root_path %></button>
+    <text class="px-2">|</text>
+    <button type="button" class="hover:underline hover:font-bold"><%= link_to 'Checkout', archive_checkout_path %> </button>
+    <text class="px-2">|</text>
+    <button type="button" class="hover:underline hover:font-bold"><%= link_to 'Wishlist', archive_wishlist_path %></button>
+  </div>
+
+
+
+  <div class="flex mx-8 pt-4"> 
+    <div class="flex"> 
+      <button type="button" class="mr-4 hover:underline hover:font-bold"><%= link_to 'Archive', archive_search_path %></button>
+      <button type="button" class="hover:underline hover:font-bold"><%= link_to 'Explore', archive_collections_path %></button>
+    </div>
+    <text class="mx-8">|</text>
+  <button type="button" class="mr-4 hover:underline hover:font-bold"><%= link_to 'Account', edit_user_registration_path %></button>
+  <button type="button" class="hover:underline hover:font-bold"><%= link_to "Log out", destroy_user_session_path %></button>
+  </div>
+
+
+
+</div>
