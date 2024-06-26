@@ -1,103 +1,108 @@
-<div id="<%= dom_id game %>">
-  <p class="my-2">
-    <strong class="block font-medium mb-1">Game art:</strong>
-    <%= game.game_art %>
-  </p>
-
-  <div class="flex">
-    <div class="my-2 text-5xl font-bold">
-    <%= game.title %> 
-    </div>
-    <div class="pl-2">
-    <div class="my-6 text-xl">
-      | <%= game.release_year %>
-    </div>
-    </div>
-  </div>
-
-  <div class="border border-gray-300">
-    <div class="px-6 py-4">
-      <div class="mr-2 font-bold underline">
-      Game Details
+<div id="<%= dom_id game %>" class="flex" >
+   
+  <div class="mt-8">
+    <div class="flex">
+      <div class="my-2 text-5xl font-bold">
+      <%= game.title %> 
+      </div>
+      <div class="pl-2">
+      <div class="my-6 text-xl">
+        | <%= game.release_year %>
+      </div>
       </div>
     </div>
-    <div class="flex p-4">
-      
-      <div class="flex flex-col ml-2 mr-10 text-lg">
-        <div class="flex">
-          <strong class="font-medium mb-4 mr-2">Platform:</strong>
-          <%= game.platform %>
+
+    <div class="border border-gray-300">
+      <div class="flex px-6 py-4">
+        <div class="mr-2 font-bold underline">
+        Game Details
         </div>
+        <text class="text-sm mt-1 text-blue-500 underline hover:cursor-pointer hove:text-blue-950">
+          more information
+        </text>
+      </div>
+      <div class="flex p-4">
         
-        <div class="flex">
-          <strong class="font-medium mb-1 mr-2">Series:</strong>
-          <%= game.series %>
+        <div class="flex flex-col ml-2 mr-10 text-lg">
+          <div class="flex">
+            <strong class="font-medium mb-4 mr-2">Platform:</strong>
+            <%= game.platform %>
+          </div>
+          
+          <div class="flex">
+            <strong class="font-medium mb-1 mr-2">Series:</strong>
+            <%= game.series %>
+          </div>
+        </div>
+
+        <div class="flex flex-col mr-10 text-lg">
+          <div class="flex">
+            <strong class="block font-medium mb-4 mr-2">Publisher:</strong>
+            <%= game.publisher %>
+          </div>
+          <div class="flex">
+            <strong class="block font-medium mr-2">Developer:</strong>
+            <%= game.developer %>
+          </div>
+        </div>
+
+        <div class="flex flex-col mr-5 text-lg">
+          <div class="flex">
+            <strong class="block font-medium mb-4 mr-2">Genre:</strong>
+            <%= game.genre %>
+          </div>
+          <div class="flex">
+            <strong class="block font-medium mr-2">Region:</strong>
+            <%= game.region %>
+          </div>   
         </div>
       </div>
+      <p class="p-6">
+        <strong class="block font-medium mb-4">Personal Description:</strong>
+        <%= game.description %>
+      </p>
+    </div>
+    
+    <div class="flex mb-5 text-xl">
 
-      <div class="flex flex-col mr-10 text-lg">
-        <div class="flex">
-          <strong class="block font-medium mb-4 mr-2">Publisher:</strong>
-          <%= game.publisher %>
-        </div>
-        <div class="flex">
-          <strong class="block font-medium mr-2">Developer:</strong>
-          <%= game.developer %>
-        </div>
+    </div>
+    
+    <div class="border border-gray-300">
+      <div class="mr-2 font-bold underline px-4 py-2">
+        Collection Details
       </div>
+      <div class="px-4 pb-4">
+      (image of game coverart or physical item)
+      <%= image_tag 'Wave_Race_64_Coverart.png', alt: 'Wave Race 64 Coverart', class: "border border-black"%>
+      
+      </div>
+      <div class="flex px-4">
+        <div class="flex flex-col mr-10 text-lg">
+          <div class="flex">
+            <strong class="font-medium mr-2 mb-1">Purchased on:</strong>
+            <%= game.date_purchase %>
+            <strong class="font-medium mx-2 mb-1">for</strong>$<%= game.purchased_price %>
+          </div>
 
-      <div class="flex flex-col mr-5 text-lg">
-        <div class="flex">
-          <strong class="block font-medium mb-4 mr-2">Genre:</strong>
-          <%= game.genre %>
+          <div class="flex">
+            <strong class="block font-medium mr-2 mb-1">Included:</strong>
+            <%= game.items_included %>
+          </div>
+
         </div>
-        <div class="flex">
-          <strong class="block font-medium mr-2">Region:</strong>
-          <%= game.region %>
-        </div>   
+
+        <div class="flex flex-col mr-10 text-lg">
+          <div class="flex">
+            <strong class="font-medium mr-2 mb-1">Quantity:</strong>
+            <%= game.quantity %>
+          </div>
+
+          <div class="flex">
+            <strong class="font-medium mr-2 mb-1">Condition:</strong>
+            <%= game.condition %>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="p-6">
-      <strong class="block font-medium mb-4">Personal Description:</strong>
-      <%= game.description %>
-    </p>
   </div>
-  
-  <div class="flex mb-5 text-xl">
-
-  </div>
-  
-  <div class="border border-gray-300">
-    <div class="mr-2 font-bold underline px-4 py-4">
-      Collection Details
-    </div>
-    <div class="flex p-4">
-      <div class="flex flex-col mr-10 text-lg">
-        <div class="flex">
-          <strong class="font-medium mr-2 mb-1">Purchased on:</strong>
-          <%= game.date_purchase %>
-          <strong class="font-medium mx-2 mb-1">for</strong>$<%= game.purchased_price %>
-        </div>
-
-        <div class="flex">
-          <strong class="block font-medium mr-2 mb-1">Included:</strong>
-          <%= game.items_included %>
-        </div>
-
-      </div>
-
-      <div class="flex flex-col mr-10 text-lg">
-        <div class="flex">
-          <strong class="font-medium mr-2 mb-1">Quantity:</strong>
-          <%= game.quantity %>
-        </div>
-
-        <div class="flex">
-          <strong class="font-medium mr-2 mb-1">Condition:</strong>
-          <%= game.condition %>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
