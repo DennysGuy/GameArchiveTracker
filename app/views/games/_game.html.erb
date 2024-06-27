@@ -1,25 +1,78 @@
-<div id="<%= dom_id game %>" class="flex" >
+<div id="<%= dom_id game %>" class="flex " >
    
-  <div class="mt-8">
-    <div class="flex">
-      <div class="my-2 text-5xl font-bold">
-      <%= game.title %> 
+  <div class="p-8 mt-8 bg-indigo-200 rounded-md shadow-xl">
+    <div class="flex justify-between mb-2 bg-white border border-gray-500 shadow-lg">
+      <div class="flex"> 
+        <div class="mt-4 text-5xl pt-4 pl-2 pb-2 font-bold">
+        <%= game.title %> 
+        </div>
+        <div class="pl-2">
+          <div class="mt-9 text-xl pt-4 pl-2 pb-2"> <%= game.release_year %>
+        </div>
+        </div>    
       </div>
-      <div class="pl-2">
-      <div class="my-6 text-xl">
-        | <%= game.release_year %>
-      </div>
+ 
+      <div class="mt-14">
+        <%= link_to "Edit item", edit_game_path(game), class: "rounded-lg px-2 inline-block text-blue-400 hover:text-blue-700 underline" %>
+        <div class="inline-block ml-2">
+          <%= button_to "Remove from collection", game, method: :delete, class: "rounded-lg  pr-5 text-blue-400 hover:text-blue-700 underline" %>
+        </div>
       </div>
     </div>
 
-    <div class="border border-gray-300">
-      <div class="flex px-6 py-4">
-        <div class="mr-2 font-bold underline">
-        Game Details
+    <div class="border border-gray-500  bg-white shadow-lg">
+      <div class="mr-2 font-bold underline px-4 py-2">
+        Collection Details
+      </div>
+      <div class="px-4 pb-4">
+      (image of game coverart or physical item)
+      <%= image_tag 'Wave_Race_64_Coverart.png', alt: 'Wave Race 64 Coverart', class: "border border-black"%>
+      
+      </div>
+      <div class="flex px-4 mb-6">
+        <div class="flex flex-col mr-10 text-lg">
+          <div class="flex">
+            <strong class="font-medium mr-2 mb-1">Purchased on:</strong>
+            <%= game.date_purchase %>
+            <strong class="font-medium mx-2 mb-1">for</strong>$<%= game.purchased_price %>
+          </div>
+
+          <div class="flex">
+            <strong class="block font-medium mr-2 mb-1">Included:</strong>
+            <%= game.items_included %>
+          </div>
+
         </div>
-        <text class="text-sm mt-1 text-blue-500 underline hover:cursor-pointer hove:text-blue-950">
-          more information
-        </text>
+
+        <div class="flex flex-col mr-10 text-lg">
+          <div class="flex">
+            <strong class="font-medium mr-2 mb-1">Quantity:</strong>
+            <%= game.quantity %>
+          </div>
+
+          <div class="flex">
+            <strong class="font-medium mr-2 mb-1">Condition:</strong>
+            <%= game.condition %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex mb-5 text-xl">
+
+    </div>
+
+    <div class="border border-gray-500 bg-white shadow-lg">
+      <div class="flex justify-between px-6 py-4 ">
+        <div class= "flex">
+          <div class="mr-2 font-bold underline">
+            Game Details
+          </div>
+          <text class="text-sm  text-blue-400 underline hover:cursor-pointer hover:text-blue-700">
+            archive page
+          </text>        
+        </div>
+  
       </div>
       <div class="flex p-4">
         
@@ -63,46 +116,5 @@
       </p>
     </div>
     
-    <div class="flex mb-5 text-xl">
-
-    </div>
-    
-    <div class="border border-gray-300">
-      <div class="mr-2 font-bold underline px-4 py-2">
-        Collection Details
-      </div>
-      <div class="px-4 pb-4">
-      (image of game coverart or physical item)
-      <%= image_tag 'Wave_Race_64_Coverart.png', alt: 'Wave Race 64 Coverart', class: "border border-black"%>
-      
-      </div>
-      <div class="flex px-4">
-        <div class="flex flex-col mr-10 text-lg">
-          <div class="flex">
-            <strong class="font-medium mr-2 mb-1">Purchased on:</strong>
-            <%= game.date_purchase %>
-            <strong class="font-medium mx-2 mb-1">for</strong>$<%= game.purchased_price %>
-          </div>
-
-          <div class="flex">
-            <strong class="block font-medium mr-2 mb-1">Included:</strong>
-            <%= game.items_included %>
-          </div>
-
-        </div>
-
-        <div class="flex flex-col mr-10 text-lg">
-          <div class="flex">
-            <strong class="font-medium mr-2 mb-1">Quantity:</strong>
-            <%= game.quantity %>
-          </div>
-
-          <div class="flex">
-            <strong class="font-medium mr-2 mb-1">Condition:</strong>
-            <%= game.condition %>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
