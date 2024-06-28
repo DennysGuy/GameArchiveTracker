@@ -67,7 +67,13 @@
 
   <div class="my-5">
     <%= form.label :items_included %>
-    <%= form.text_field :items_included, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    
+    <select>
+          <option value="manual">Manual</option>
+          <option value="box">Box</option>
+          <option value="inserts">Inserts</option>
+          <option value="poster">Poster</option>
+    </select>
   </div>
 
   <div class="my-5">
