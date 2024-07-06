@@ -12,77 +12,215 @@
 
   <div class="my-5">
     <%= form.label :game_art %>
-    <%= form.text_field :game_art, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.file_field :game_art, class: "block px-3 py-2 mt-2" %>
+    
+  </div>
+
+  <div class="flex my-5">
+    <div class="mr-16">
+      <%= form.label :title, class:"font-bold" %>
+      <%= form.text_field :title, class: "block shadow  px-3 py-2 mt-2" %>
+    </div>
+
+    <div class="mr-14">
+      <%= form.label :release_year, class:"font-bold" %>
+      <%= form.number_field :release_year, class: "block px-3 py-2 mt-2 " %>
+    </div> 
+
+    <div class="">
+      <%= form.label :series, class:"font-bold" %>
+      <%= form.text_field :series, class: "block shadow px-3 py-2 mt-2" %>
+    </div>
+  </div>
+
+
+  <div class="my-5 flex">
+    <div class="mr-16">
+      <%= form.label :publisher, class:"font-bold" %>
+      <%= form.text_field :publisher, class: "block shadow px-3 py-2 mt-2" %>
+    </div>
+
+    <div class="mr-14">
+      <%= form.label :developer, class:"font-bold" %>
+      <%= form.text_field :developer, class: "block shadow px-3 py-2 mt-2" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :region, class: "font-bold mr-6" %>
+      <%= form.select :region,
+      options_for_select(
+        [['NTSC-U', 'NTSC-U'],
+        ['NTSC-J', 'NTSC-J'],
+        ['NTSC-C', 'NTSC-C'],
+        ['PAL', 'PAL']],
+        selected: 'NTSC-U'
+      )
+      %>
+    </div>
+  </div>
+
+
+  <div class="flex my-5">
+    <div class="mr-14">
+    <%= form.label :platform, class:"font-bold mr-28" %>
+    <%= form.select :platform, 
+    options_for_select(
+        [['NES - Nintendo Entertainment System', 'NES - Nintendo Entertainment System'],  
+        ['SNES - Super Nintendo Entertainment System', 'SNES - Super Nintendo Entertainment System'],
+        ['Nintendo 64', 'Nintendo 64'], 
+        ['Nintendo Gamecube', 'Nintendo Gamecube'],
+        ['Nintendo Wii', 'Nintendo Wii'],
+        ['Nintendo Wii U', 'Nintendo Wii U'],
+        ['Nintendo Switch', 'Nintendo Switch'],
+        ['Nintedo Gameboy', 'Nintendo Gameboy'],
+        ['Nintendo Gameboy Color', 'Nintendo Gameboy Color'],
+        ['Nintendo Gameboy Advance', 'Nintendo Gameboy Advance'],
+        ['Nintendo DS', 'Nintendo DS'],
+        ['Nintendo DS Lite', 'Nintendo DS Lite'],
+        ['Nintendo DSi', 'Nintendo DSi'],
+        ['Nintendo 3DS', 'Nintendo 3DS'],
+        ['Nintendo 3DS XL', 'Nintendo 3DS XL'],
+        ['Nintendo 2DS', 'Nintendo 2DS'],
+        ['New Nintendo 3DS', 'New Nintendo 3DS'],
+        ['New Nintendo 3DS XL', 'New Nintendo 3DS XL'],
+        ['New Nintendo 2DS XL', 'New Nintendo 2DS XL'],
+        ['Nintendo Game & Watch', 'Nintendo Game & Watch'],
+        ['SEGA Master System', 'SEGA Master System'],
+        ['SEGA Genesis', 'SEGA Genesis'],
+        ['SEGA Saturn', 'SEGA Saturn'],
+        ['SEGA 32X', 'SEGA 32X'],
+        ['SEGA CD', 'SEGA CD'],
+        ['SEGA Game Gear', 'SEGA Game Gear'],
+        ['SEGA Nomad', 'SEGA Nomad'],
+        ['SEGA Pico', 'SEGA Pico'],
+        ['SEGA Dreamcast', 'SEGA Dreamcast'],
+        ['Sony Playstation', 'Sony Playstation'],
+        ['Sony Playstation 2', 'Sony Playstation 2'],
+        ['Sony Playstation 3', 'Sony Playstation 3'],
+        ['Sony Playstation 4', 'Sony Playstation 4'],
+        ['Sony Playstation 5', 'Sony Playstation 5'],
+        ['Sony PSP', 'Sony PSP'],
+        ['Sony PS Vita', 'Sony PS Vita'],
+        ['Microsoft Xbox', 'Microsoft Xbox'],
+        ['Microsoft Xbox 360', 'Microsoft Xbox 360'],
+        ['Microsoft Xbox One', 'Microsoft Xbox One'],
+        ['Microsoft Xbox Series X', 'Microsoft Xbox Series X'],
+        ['Neo Geo MVS', 'Neo Geo MVS'],
+        ['Neo Geo AES', 'Neo Geo AES'],
+        ['Neo Geo CD', 'Neo Geo CD'],
+        ['Neo Geo Pocket Color', 'Neo Geo Pocket Color'],
+        ['Atari 2600', 'Atari 2600'],
+        ['Atari 5200', 'Atari 5200'],
+        ['Atari 7800', 'Atari 7800'],
+        ['Atari Jaguar', 'Atari Jaguar'],
+        ['Atari Lynx', 'Atari Lynx'],
+        ['Atari XEGS', 'Atari XEGS'],
+        ['Atari 8-bit', 'Atari 8-bit'],
+        ['Atari ST', 'Atari ST'],
+        ['PC Engine', 'PC Engine'],
+        ['TurboGrafx-16', 'TurboGrafx-16'],
+        ['SuperGrafx', 'SuperGrafx'],
+        ['Neo Geo Pocket', 'Neo Geo Pocket'],
+        ['WonderSwan', 'WonderSwan'],
+        ['WonderSwan Color', 'WonderSwan Color'],
+        ['SwanCrystal', 'SwanCrystal'],
+        ['PC-FX', 'PC-FX'],
+        ['Apple II', 'Apple II'],
+        ['Commodore 64', 'Commodore 64'],
+        ['Amiga', 'Amiga'],
+        ['Atari ST', 'Atari ST'],
+        ['ZX Spectrum', 'ZX Spectrum'],
+        ['MSX', 'MSX'],
+        ['Amstrad CPC', 'Amstrad CPC'],
+        ['BBC Micro', 'BBC Micro'],
+        ['Acorn Electron', 'Acorn Electron'],
+        ['PC', 'PC'],
+        ['Other', 'Other']],
+        selected: 'Nintendo 64'
+    ), 
+    class: "block shadow mx-4 py-2 mt-2" %>
+    </div>
+    <div>
+      <%= form.label :genre, class:"font-bold mr-5" %>
+      <%= form.select :condition, 
+      options_for_select(
+        [['Action', 'action'],
+        ['Adventure', 'adventure'],
+        ['Fighting', 'fighting'], 
+        ['Platformer', 'platformer'], 
+        ['Puzzle', 'puzzle'], 
+        ['Racing', 'racing'], 
+        ['RPG', 'RPG'],
+        ['JRPG', 'JRPG'],
+        ['SRPG', 'SRPG'],
+        ['Shooter', 'shooter'], 
+        ['Simulation', 'simulation'], 
+        ['Sports', 'sports'], 
+        ['Strategy', 'strategy'], 
+        ['Other', 'other']],
+        selected: 'action'
+      ) 
+      %>
+    </div>
+   
   </div>
 
   <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :condition, class: "mr-24 font-bold" %>
+    <%= form.select :condition, 
+    options_for_select(
+      [['New - Brand new/sealed in box', 'New - Brand new/sealed in box'],
+      ['Graded New', 'graded new'],
+      ['Graded Used', 'graded used'],  
+      ['Great - Opened, but in great condition (none or minor visible signs of wear)', 'Great - Opened, but in great condition (none or minor visible signs of wear)'], 
+      ['Used - Visible signs of wear', 'Used - Visible signs of wear'],
+      ['Worn - Visible cosmetic wear; may have scratches, dents, or other cosmetic damage', 'Worn - Visible cosmetic wear; may have scratches, dents, or other cosmetic damage'],
+      ['Broken - Not functioning', 'Broken - Not functioning']], 
+      selected: 'New - Brand new/sealed in box'
+    ), class: "block shadow rounded-md border border-gray-400 outline-none mx-4 px-6 py-2 mt-2 "
+    %>
+  </div>
+
+  <div class="flex my-5">
+    <div class="mr-24">
+    <%= form.label :items_included, class: "font-bold mr-14" %>
+  
+    <%= form.select :items_included, 
+    options_for_select(
+        [['Closed In Box', 'closed in box'],  
+        ['Box Only', 'box only'],
+        ['Manual Only', 'manual only'], 
+        ['Loose', 'loose'],
+        ['Media and Box Only', 'media and box only'],
+        ['Box and Manual Only', 'box and manual only'],
+        ['Digital', 'digital']],
+        selected: 'closed in box'
+    ), 
+    class: "block shadow mx-4 px-6 py-2 mt-2 w-full" %>
+    </div>
+
+  </div>
+  
+  <div class="flex my-5">
+    <div class="mr-16">
+    <%= form.label :date_purchase, class:"font-bold" %>
+    <%= form.date_field :date_purchase, class: "block shadow  px-3 py-2 mt-2 " %>
+    </div>
+
+    <div class="">
+      <%= form.label :purchased_price, class:"font-bold" %>
+      <%= form.number_field :purchased_price, step: :any, class: "block shadow px-3 py-2 mt-2" %>
+    </div>
+  </div>
+  
+  <div class="">
+  <%= form.label :quantity, class:"font-bold mr-6 mb-4" %>
+  <%= form.number_field :quantity, class: "block shadow mt-2 " %>
   </div>
 
   <div class="my-5">
-    <%= form.label :platform %>
-    <%= form.text_field :platform, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :publisher %>
-    <%= form.text_field :publisher, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :developer %>
-    <%= form.text_field :developer, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :genre %>
-    <%= form.text_field :genre, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :series %>
-    <%= form.text_field :series, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :release_year %>
-    <%= form.number_field :release_year, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :date_purchase %>
-    <%= form.date_field :date_purchase, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :condition %>
-    <%= form.text_field :condition, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :items_included %>
-    <%= form.text_field :items_included, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :region %>
-    <%= form.text_field :region, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :purchased_price %>
-    <%= form.number_field :purchased_price, step: :any, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_field :description, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :description, class:"font-bold" %>
+    <%= form.text_area :description, class: "block shadow px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
